@@ -12,6 +12,8 @@ jobs:
     - uses: actions/checkout@v2
     - run: whoami
       shell: pwsh
+    - run: $PSVersionTable
+      shell: pwsh
     - run: Get-ChildItem /root/.local/share/powershell/Modules
       shell: pwsh
     - run: Get-Module -ListAvailable
