@@ -14,6 +14,8 @@ jobs:
       shell: pwsh
     - run: $PSVersionTable
       shell: pwsh
+    - run: $env:PSModulePath
+      shell: pwsh
     - run: Get-ChildItem /root/.local/share/powershell/Modules
       shell: pwsh
     - run: Get-Module -ListAvailable -Refresh
