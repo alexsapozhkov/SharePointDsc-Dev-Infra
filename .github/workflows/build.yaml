@@ -16,7 +16,7 @@ jobs:
       shell: pwsh
     - run: Get-ChildItem /root/.local/share/powershell/Modules
       shell: pwsh
-    - run: Get-Module -ListAvailable
+    - run: Get-Module -ListAvailable -Refresh
       shell: pwsh
     - name: Remove Existing Resource Group
       shell: pwsh
