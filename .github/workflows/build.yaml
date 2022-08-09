@@ -10,6 +10,7 @@ jobs:
     container: mcr.microsoft.com/azure-powershell:8.2.0-alpine-3.14
     steps:
     - uses: actions/checkout@v2
+    - run Get-Module -ListAvailable
     - name: Remove Existing Resource Group
       shell: pwsh
       run: ./src/remove.ps1 -ARM_CLIENT_ID ${{ secrets.ARM_CLIENT_ID }} -ARM_CLIENT_SECRET ${{ secrets.ARM_CLIENT_SECRET }} -ARM_SUBSCRIPTION_ID ${{ secrets.ARM_SUBSCRIPTION_ID }} -ARM_TENANT_ID ${{ secrets.ARM_TENANT_ID }} -LabName SharePointDscDevInfraCIWin2012R2
