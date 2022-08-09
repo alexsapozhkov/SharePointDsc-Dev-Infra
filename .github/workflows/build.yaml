@@ -10,10 +10,6 @@ jobs:
     container: mcr.microsoft.com/azure-powershell:8.2.0-alpine-3.14
     steps:
     - uses: actions/checkout@v2
-    - run: whoami
-      shell: pwsh
-    - run: $PSVersionTable
-      shell: pwsh
     - run: $env:PSModulePath = "/github/home/.local/share/powershell/Modules:/usr/local/share/powershell/Modules:/opt/microsoft/powershell/7/Modules:/root/.local/share/powershell/Modules"
       shell: pwsh
     - run: $env:PSModulePath
