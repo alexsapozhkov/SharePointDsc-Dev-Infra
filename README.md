@@ -21,6 +21,7 @@ Uninstall-Module -Name AutomatedLabDefinition -RequiredVersion 5.44.0 -Force;
 Uninstall-Module -Name AutomatedLabNotifications -RequiredVersion 5.44.0 -Force;
 Uninstall-Module -Name AutomatedLabTest -RequiredVersion 5.44.0 -Force;
 Uninstall-Module -Name AutomatedLabWorker -RequiredVersion 5.44.0 -Force;
+Enable-LabHostRemoting -Force;
 ```
 
 ```powershell

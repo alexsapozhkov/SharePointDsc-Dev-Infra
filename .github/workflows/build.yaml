@@ -35,6 +35,7 @@ jobs:
         Uninstall-Module -Name AutomatedLabNotifications -RequiredVersion 5.44.0 -Force;
         Uninstall-Module -Name AutomatedLabTest -RequiredVersion 5.44.0 -Force;
         Uninstall-Module -Name AutomatedLabWorker -RequiredVersion 5.44.0 -Force;
+        Enable-LabHostRemoting -Force;
     - name: Provisioning Lab
       shell: pwsh
       run: ./src/soe/new.ps1 -ARM_CLIENT_ID ${{ secrets.ARM_CLIENT_ID }} -ARM_CLIENT_SECRET ${{ secrets.ARM_CLIENT_SECRET }} -ARM_SUBSCRIPTION_ID ${{ secrets.ARM_SUBSCRIPTION_ID }} -ARM_TENANT_ID ${{ secrets.ARM_TENANT_ID }} -LabName SharePointDscDevInfraCIWin2012R2 -AdminPassword Somepass1 -SPFE1Name swazspfe00 -SPFE1Size Standard_D2s_v3 -SPFE1Os "Windows Server 2012 R2 Datacenter (Server with a GUI)" -SPFE1StorageSku Standard_LRS -GITHUB_RUNNER_URL https://github.com/alexsapozhkov/SharePointDsc-Dev-Infra -GITHUB_RUNNER_TOKEN ${{ secrets._GITHUB_RUNNER_TOKEN }} -GITHUB_RUNNER_LABELS SOE-DEV-2012R2
