@@ -23,7 +23,6 @@ jobs:
     - name: Installing Prerequisites
       shell: pwsh
       run: |
-        $env:PSModulePath = "/github/home/.local/share/powershell/Modules:/usr/local/share/powershell/Modules:/opt/microsoft/powershell/7/Modules:/root/.local/share/powershell/Modules"
         Install-Module -Name Az -RequiredVersion 8.2.0 -Force -AllowClobber;
         Install-Module -Name AutomatedLabUnattended -RequiredVersion 5.43.0 -Force;
         Install-Module -Name AutomatedLabDefinition -RequiredVersion 5.43.0 -Force;
@@ -41,10 +40,8 @@ jobs:
     - name: Provisioning Lab
       shell: pwsh
       run: |
-        $env:PSModulePath = "/github/home/.local/share/powershell/Modules:/usr/local/share/powershell/Modules:/opt/microsoft/powershell/7/Modules:/root/.local/share/powershell/Modules"
         ./src/soe/new.ps1 -ARM_CLIENT_ID ${{ secrets.ARM_CLIENT_ID }} -ARM_CLIENT_SECRET ${{ secrets.ARM_CLIENT_SECRET }} -ARM_SUBSCRIPTION_ID ${{ secrets.ARM_SUBSCRIPTION_ID }} -ARM_TENANT_ID ${{ secrets.ARM_TENANT_ID }} -LabName SharePointDscDevInfraCIWin2012R2 -AdminPassword Somepass1 -SPFE1Name swazspfe00 -SPFE1Size Standard_D2s_v3 -SPFE1Os "Windows Server 2012 R2 Datacenter (Server with a GUI)" -SPFE1StorageSku Standard_LRS -GITHUB_RUNNER_URL https://github.com/alexsapozhkov/SharePointDsc-Dev-Infra -GITHUB_RUNNER_TOKEN ${{ secrets._GITHUB_RUNNER_TOKEN }} -GITHUB_RUNNER_LABELS SOE-DEV-2012R2
     - name: Remove Existing Resource Group
       shell: pwsh
       run: |
-        $env:PSModulePath = "/github/home/.local/share/powershell/Modules:/usr/local/share/powershell/Modules:/opt/microsoft/powershell/7/Modules:/root/.local/share/powershell/Modules"
         ./src/remove.ps1 -ARM_CLIENT_ID ${{ secrets.ARM_CLIENT_ID }} -ARM_CLIENT_SECRET ${{ secrets.ARM_CLIENT_SECRET }} -ARM_SUBSCRIPTION_ID ${{ secrets.ARM_SUBSCRIPTION_ID }} -ARM_TENANT_ID ${{ secrets.ARM_TENANT_ID }} -LabName SharePointDscDevInfraCIWin2012R2
