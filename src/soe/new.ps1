@@ -80,9 +80,13 @@ if ( $SPFE1Os -eq "Windows Server 2012 R2 Datacenter (Server with a GUI)" ) {
 if ( $SPFE1Os -eq "Windows Server 2016 Datacenter (Desktop Experience)" ) {
     $scriptText = Get-Content .\src\remote\Download-SP2016.ps1 -Raw;
     Invoke-LabCommand -ScriptBlock { param( $scriptText ) Invoke-Expression $scriptText } -ComputerName $SPFE1Name -PassThru -ArgumentList $scriptText;
+    $scriptText = Get-Content .\src\remote\Download-SP2019.ps1 -Raw;
+    Invoke-LabCommand -ScriptBlock { param( $scriptText ) Invoke-Expression $scriptText } -ComputerName $SPFE1Name -PassThru -ArgumentList $scriptText;
 }
 if ( $SPFE1Os -eq "Windows Server 2019 Datacenter (Desktop Experience)" ) {
     $scriptText = Get-Content .\src\remote\Download-SP2016.ps1 -Raw;
+    Invoke-LabCommand -ScriptBlock { param( $scriptText ) Invoke-Expression $scriptText } -ComputerName $SPFE1Name -PassThru -ArgumentList $scriptText;
+    $scriptText = Get-Content .\src\remote\Download-SP2019.ps1 -Raw;
     Invoke-LabCommand -ScriptBlock { param( $scriptText ) Invoke-Expression $scriptText } -ComputerName $SPFE1Name -PassThru -ArgumentList $scriptText;
 }
 
