@@ -45,14 +45,14 @@ Connect-LabVM swazspfe00
 
 https://github.com/AutomatedLab/AutomatedLab/blob/develop/LabXml/Machines/OperatingSystem.cs
 
-- SharePoint 2013
+- SharePoint Server 2013
 
   - Windows Server 2008 R2 Datacenter (Full Installation)
     - Not available in Azure
   - Windows Server 2012 Datacenter (Server with a GUI)
     - Not available in Azure
 
-- SharePoint 2013 with SP1
+- SharePoint Server 2013 with SP1
 
   - Windows Server 2008 R2 Datacenter (Full Installation)
     - Not available in Azure
@@ -60,7 +60,7 @@ https://github.com/AutomatedLab/AutomatedLab/blob/develop/LabXml/Machines/Operat
     - Not available in Azure
   - Windows Server 2012 R2 Datacenter (Server with a GUI)
 
-- SharePoint 2016
+- SharePoint Server 2016
 
   - Windows Server 2012 R2 Datacenter (Server with a GUI)
   - Windows Server 2016 Datacenter (Desktop Experience)
