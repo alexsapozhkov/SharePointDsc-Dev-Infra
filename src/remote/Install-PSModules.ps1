@@ -31,6 +31,15 @@ try
                 RequiredVersion     = "2.5.0.0"
             }
 
+            PSModule "PSModule_StorageDsc"
+            {
+                Ensure              = "Present"
+                Name                = "StorageDsc"
+                Repository          = "PSGallery"
+                InstallationPolicy  = "Trusted"
+                RequiredVersion     = "5.0.1"
+            }
+          
         }
     }
 }
