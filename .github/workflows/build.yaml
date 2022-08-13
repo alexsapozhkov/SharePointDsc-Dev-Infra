@@ -45,7 +45,6 @@ jobs:
     runs-on: SOE-DEV-2012R2
     steps:
     - run: Get-ChildItem
-      shell: pwsh
   test-win2012r2-post-cleaning:
     if: ${{ always() }}
     needs: test-win2012r2-agent-job
