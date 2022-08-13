@@ -53,4 +53,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: Remove Existing Resource Group
       shell: pwsh
-      run: ./src/remove.ps1 -ARM_CLIENT_ID ${{ secrets.ARM_CLIENT_ID }} -ARM_CLIENT_SECRET ${{ secrets.ARM_CLIENT_SECRET }} -ARM_SUBSCRIPTION_ID ${{ secrets.ARM_SUBSCRIPTION_ID }} -ARM_TENANT_ID ${{ secrets.ARM_TENANT_ID }} -LabName SpDscDevInfraCIWin2012R2
+      run: |
+        Install-Module -Name Az -RequiredVersion 8.2.0 -Force -AllowClobber;
+        ./src/remove.ps1 -ARM_CLIENT_ID ${{ secrets.ARM_CLIENT_ID }} -ARM_CLIENT_SECRET ${{ secrets.ARM_CLIENT_SECRET }} -ARM_SUBSCRIPTION_ID ${{ secrets.ARM_SUBSCRIPTION_ID }} -ARM_TENANT_ID ${{ secrets.ARM_TENANT_ID }} -LabName SpDscDevInfraCIWin2012R2
