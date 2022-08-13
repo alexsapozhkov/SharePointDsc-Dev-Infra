@@ -15,7 +15,7 @@ jobs:
       run: |
         $env:PSModulePath = "/github/home/.local/share/powershell/Modules:/usr/local/share/powershell/Modules:/opt/microsoft/powershell/7/Modules:/root/.local/share/powershell/Modules"
         ./src/remove.ps1 -ARM_CLIENT_ID ${{ secrets.ARM_CLIENT_ID }} -ARM_CLIENT_SECRET ${{ secrets.ARM_CLIENT_SECRET }} -ARM_SUBSCRIPTION_ID ${{ secrets.ARM_SUBSCRIPTION_ID }} -ARM_TENANT_ID ${{ secrets.ARM_TENANT_ID }} -LabName SpDscDevInfraCIWin2012R2
-  test-win2012r2:
+  test-win2012r2-provision:
     needs: test-win2012r2-clean
     runs-on: windows-2022
     steps:
@@ -41,7 +41,7 @@ jobs:
       shell: pwsh
       run: ./src/soe/new.ps1 -ARM_CLIENT_ID ${{ secrets.ARM_CLIENT_ID }} -ARM_CLIENT_SECRET ${{ secrets.ARM_CLIENT_SECRET }} -ARM_SUBSCRIPTION_ID ${{ secrets.ARM_SUBSCRIPTION_ID }} -ARM_TENANT_ID ${{ secrets.ARM_TENANT_ID }} -LabName SpDscDevInfraCIWin2012R2 -AdminPassword Somepass1 -SPFE1Name swazspfe00 -SPFE1Size Standard_D2s_v3 -SPFE1Os "Windows Server 2012 R2 Datacenter (Server with a GUI)" -SPFE1StorageSku Standard_LRS -GITHUB_RUNNER_URL https://github.com/alexsapozhkov/SharePointDsc-Dev-Infra -GITHUB_RUNNER_TOKEN ${{ secrets._GITHUB_RUNNER_TOKEN }} -GITHUB_RUNNER_LABELS SOE-DEV-2012R2
   test-win2012r2-agent-job:
-    needs: test-win2012r2
+    needs: test-win2012r2-provision
     runs-on: SOE-DEV-2012R2
     steps:
     - run: Get-ChildItem
@@ -66,7 +66,7 @@ jobs:
       run: |
         $env:PSModulePath = "/github/home/.local/share/powershell/Modules:/usr/local/share/powershell/Modules:/opt/microsoft/powershell/7/Modules:/root/.local/share/powershell/Modules"
         ./src/remove.ps1 -ARM_CLIENT_ID ${{ secrets.ARM_CLIENT_ID }} -ARM_CLIENT_SECRET ${{ secrets.ARM_CLIENT_SECRET }} -ARM_SUBSCRIPTION_ID ${{ secrets.ARM_SUBSCRIPTION_ID }} -ARM_TENANT_ID ${{ secrets.ARM_TENANT_ID }} -LabName SpDscDevInfraCIWin2016
-  test-win2016:
+  test-win2016-provision:
     needs: test-win2016-clean
     runs-on: windows-2022
     steps:
@@ -92,7 +92,7 @@ jobs:
       shell: pwsh
       run: ./src/soe/new.ps1 -ARM_CLIENT_ID ${{ secrets.ARM_CLIENT_ID }} -ARM_CLIENT_SECRET ${{ secrets.ARM_CLIENT_SECRET }} -ARM_SUBSCRIPTION_ID ${{ secrets.ARM_SUBSCRIPTION_ID }} -ARM_TENANT_ID ${{ secrets.ARM_TENANT_ID }} -LabName SpDscDevInfraCIWin2016 -AdminPassword Somepass1 -SPFE1Name swazspfe00 -SPFE1Size Standard_D2s_v3 -SPFE1Os "Windows Server 2016 Datacenter (Desktop Experience)" -SPFE1StorageSku Standard_LRS -GITHUB_RUNNER_URL https://github.com/alexsapozhkov/SharePointDsc-Dev-Infra -GITHUB_RUNNER_TOKEN ${{ secrets._GITHUB_RUNNER_TOKEN }} -GITHUB_RUNNER_LABELS SOE-DEV-2016
   test-win2016-agent-job:
-    needs: test-win2016
+    needs: test-win2016-provision
     runs-on: SOE-DEV-2016
     steps:
     - run: Get-ChildItem
@@ -117,7 +117,7 @@ jobs:
       run: |
         $env:PSModulePath = "/github/home/.local/share/powershell/Modules:/usr/local/share/powershell/Modules:/opt/microsoft/powershell/7/Modules:/root/.local/share/powershell/Modules"
         ./src/remove.ps1 -ARM_CLIENT_ID ${{ secrets.ARM_CLIENT_ID }} -ARM_CLIENT_SECRET ${{ secrets.ARM_CLIENT_SECRET }} -ARM_SUBSCRIPTION_ID ${{ secrets.ARM_SUBSCRIPTION_ID }} -ARM_TENANT_ID ${{ secrets.ARM_TENANT_ID }} -LabName SpDscDevInfraCIWin2019
-  test-win2019:
+  test-win2019-provision:
     needs: test-win2019-clean
     runs-on: windows-2022
     steps:
@@ -143,7 +143,7 @@ jobs:
       shell: pwsh
       run: ./src/soe/new.ps1 -ARM_CLIENT_ID ${{ secrets.ARM_CLIENT_ID }} -ARM_CLIENT_SECRET ${{ secrets.ARM_CLIENT_SECRET }} -ARM_SUBSCRIPTION_ID ${{ secrets.ARM_SUBSCRIPTION_ID }} -ARM_TENANT_ID ${{ secrets.ARM_TENANT_ID }} -LabName SpDscDevInfraCIWin2019 -AdminPassword Somepass1 -SPFE1Name swazspfe00 -SPFE1Size Standard_D2s_v3 -SPFE1Os "Windows Server 2019 Datacenter (Desktop Experience)" -SPFE1StorageSku Standard_LRS -GITHUB_RUNNER_URL https://github.com/alexsapozhkov/SharePointDsc-Dev-Infra -GITHUB_RUNNER_TOKEN ${{ secrets._GITHUB_RUNNER_TOKEN }} -GITHUB_RUNNER_LABELS SOE-DEV-2019
   test-win2019-agent-job:
-    needs: test-win2019
+    needs: test-win2019-provision
     runs-on: SOE-DEV-2019
     steps:
     - run: Get-ChildItem
@@ -168,7 +168,7 @@ jobs:
       run: |
         $env:PSModulePath = "/github/home/.local/share/powershell/Modules:/usr/local/share/powershell/Modules:/opt/microsoft/powershell/7/Modules:/root/.local/share/powershell/Modules"
         ./src/remove.ps1 -ARM_CLIENT_ID ${{ secrets.ARM_CLIENT_ID }} -ARM_CLIENT_SECRET ${{ secrets.ARM_CLIENT_SECRET }} -ARM_SUBSCRIPTION_ID ${{ secrets.ARM_SUBSCRIPTION_ID }} -ARM_TENANT_ID ${{ secrets.ARM_TENANT_ID }} -LabName SpDscDevInfraCIWin2022
-  test-win2022:
+  test-win2022-provision:
     needs: test-win2022-clean
     runs-on: windows-2022
     steps:
@@ -194,7 +194,7 @@ jobs:
       shell: pwsh
       run: ./src/soe/new.ps1 -ARM_CLIENT_ID ${{ secrets.ARM_CLIENT_ID }} -ARM_CLIENT_SECRET ${{ secrets.ARM_CLIENT_SECRET }} -ARM_SUBSCRIPTION_ID ${{ secrets.ARM_SUBSCRIPTION_ID }} -ARM_TENANT_ID ${{ secrets.ARM_TENANT_ID }} -LabName SpDscDevInfraCIWin2022 -AdminPassword Somepass1 -SPFE1Name swazspfe00 -SPFE1Size Standard_D2s_v3 -SPFE1Os "Windows Server 2022 Datacenter (Desktop Experience)" -SPFE1StorageSku Standard_LRS -GITHUB_RUNNER_URL https://github.com/alexsapozhkov/SharePointDsc-Dev-Infra -GITHUB_RUNNER_TOKEN ${{ secrets._GITHUB_RUNNER_TOKEN }} -GITHUB_RUNNER_LABELS SOE-DEV-2022
   test-win2022-agent-job:
-    needs: test-win2022
+    needs: test-win2022-provision
     runs-on: SOE-DEV-2022
     steps:
     - run: Get-ChildItem
