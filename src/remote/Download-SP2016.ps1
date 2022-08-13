@@ -97,13 +97,6 @@ try
                 MatchSource     = $false
             }
 
-            xRemoteFile ubersrv2013-kb5002218-fullfile-x64-glb.exe
-            {
-                Uri             = "https://download.microsoft.com/download/d/c/7/dc758c30-2e8b-4b80-8e5b-21253852ed1e/ubersrv2013-kb5002218-fullfile-x64-glb.exe"
-                DestinationPath = "c:\install\SP2016\2022_June\ubersrv2013-kb5002218-fullfile-x64-glb.exe"
-                MatchSource     = $false
-            }
-
             xRemoteFile sts2016-kb5002231-fullfile-x64-glb.exe
             {
                 Uri             = "https://download.microsoft.com/download/4/c/1/4c18db79-6e6d-4f9c-82ec-0071e37941fc/sts2016-kb5002231-fullfile-x64-glb.exe"
