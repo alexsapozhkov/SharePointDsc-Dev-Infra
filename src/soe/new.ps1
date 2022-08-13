@@ -88,9 +88,13 @@ if ( $SPFE1Os -eq "Windows Server 2019 Datacenter (Desktop Experience)" ) {
     Invoke-LabCommand -ScriptBlock { param( $scriptText ) Invoke-Expression $scriptText } -ComputerName $SPFE1Name -PassThru -ArgumentList $scriptText;
     $scriptText = Get-Content .\src\remote\Download-SP2019.ps1 -Raw;
     Invoke-LabCommand -ScriptBlock { param( $scriptText ) Invoke-Expression $scriptText } -ComputerName $SPFE1Name -PassThru -ArgumentList $scriptText;
+    $scriptText = Get-Content .\src\remote\Download-SPSE.ps1 -Raw;
+    Invoke-LabCommand -ScriptBlock { param( $scriptText ) Invoke-Expression $scriptText } -ComputerName $SPFE1Name -PassThru -ArgumentList $scriptText;
 }
 if ( $SPFE1Os -eq "Windows Server 2022 Datacenter (Desktop Experience)" ) {
     $scriptText = Get-Content .\src\remote\Download-SP2019.ps1 -Raw;
+    Invoke-LabCommand -ScriptBlock { param( $scriptText ) Invoke-Expression $scriptText } -ComputerName $SPFE1Name -PassThru -ArgumentList $scriptText;
+    $scriptText = Get-Content .\src\remote\Download-SPSE.ps1 -Raw;
     Invoke-LabCommand -ScriptBlock { param( $scriptText ) Invoke-Expression $scriptText } -ComputerName $SPFE1Name -PassThru -ArgumentList $scriptText;
 }
 
