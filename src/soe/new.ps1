@@ -64,9 +64,12 @@ Add-LabMachineDefinition -Name $SPFE1Name -AzureProperties $azureProperties -Ope
 Install-Lab;
 
 if ( $SPFE1Os -eq "Windows Server 2012 R2 Datacenter (Server with a GUI)" ) {
-    Invoke-LabCommand -ScriptBlock {Set-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\.NetFramework\v4.0.30319 -Name SchUseStrongCrypto -Value 1 -Type DWord;} -ComputerName $SPFE1Name -PassThru;
+    Invoke-LabCommand -FilePath .\src\remote\Set-SchUseStrongCrypto.ps1 -ComputerName $SPFE1Name -PassThru;
     Invoke-LabCommand -FilePath .\src\remote\Install-Wmf5.ps1 -ComputerName $SPFE1Name -PassThru;
     Sleep 300;
+}
+if ( $SPFE1Os -eq "Windows Server 2016 Datacenter (Desktop Experience)" ) {
+    Invoke-LabCommand -FilePath .\src\remote\Set-SchUseStrongCrypto.ps1 -ComputerName $SPFE1Name -PassThru;
 }
 Invoke-LabCommand -FilePath .\src\remote\Install-PackageManagementProviderResource.ps1 -ComputerName $SPFE1Name -PassThru;
 $scriptText = Get-Content .\src\remote\Install-PSModules.ps1 -Raw;
