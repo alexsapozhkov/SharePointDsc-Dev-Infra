@@ -55,7 +55,7 @@ jobs:
       shell: pwsh
       run: |
         Install-Module -Name Az -RequiredVersion 8.2.0 -Force -AllowClobber;
-        ./src/remove.ps1 -ARM_CLIENT_ID ${{ secrets.ARM_CLIENT_ID }} -ARM_CLIENT_SECRET ${{ secrets.ARM_CLIENT_SECRET }} -ARM_SUBSCRIPTION_ID ${{ secrets.ARM_SUBSCRIPTION_ID }} -ARM_TENANT_ID ${{ secrets.ARM_TENANT_ID }} -LabName SpDscDevInfraCIWin2012R2
+        ./src/clear.ps1 -ARM_CLIENT_ID ${{ secrets.ARM_CLIENT_ID }} -ARM_CLIENT_SECRET ${{ secrets.ARM_CLIENT_SECRET }} -ARM_SUBSCRIPTION_ID ${{ secrets.ARM_SUBSCRIPTION_ID }} -ARM_TENANT_ID ${{ secrets.ARM_TENANT_ID }} -LabName SpDscDevInfraCIWin2012R2
   test-win2016-clean:
     runs-on: ubuntu-20.04
     container: mcr.microsoft.com/azure-powershell:8.2.0-alpine-3.14
@@ -106,7 +106,7 @@ jobs:
       shell: pwsh
       run: |
         Install-Module -Name Az -RequiredVersion 8.2.0 -Force -AllowClobber;
-        ./src/remove.ps1 -ARM_CLIENT_ID ${{ secrets.ARM_CLIENT_ID }} -ARM_CLIENT_SECRET ${{ secrets.ARM_CLIENT_SECRET }} -ARM_SUBSCRIPTION_ID ${{ secrets.ARM_SUBSCRIPTION_ID }} -ARM_TENANT_ID ${{ secrets.ARM_TENANT_ID }} -LabName SpDscDevInfraCIWin2016
+        ./src/clear.ps1 -ARM_CLIENT_ID ${{ secrets.ARM_CLIENT_ID }} -ARM_CLIENT_SECRET ${{ secrets.ARM_CLIENT_SECRET }} -ARM_SUBSCRIPTION_ID ${{ secrets.ARM_SUBSCRIPTION_ID }} -ARM_TENANT_ID ${{ secrets.ARM_TENANT_ID }} -LabName SpDscDevInfraCIWin2016
   test-win2019-clean:
     runs-on: ubuntu-20.04
     container: mcr.microsoft.com/azure-powershell:8.2.0-alpine-3.14
@@ -157,7 +157,7 @@ jobs:
       shell: pwsh
       run: |
         Install-Module -Name Az -RequiredVersion 8.2.0 -Force -AllowClobber;
-        ./src/remove.ps1 -ARM_CLIENT_ID ${{ secrets.ARM_CLIENT_ID }} -ARM_CLIENT_SECRET ${{ secrets.ARM_CLIENT_SECRET }} -ARM_SUBSCRIPTION_ID ${{ secrets.ARM_SUBSCRIPTION_ID }} -ARM_TENANT_ID ${{ secrets.ARM_TENANT_ID }} -LabName SpDscDevInfraCIWin2019
+        ./src/clear.ps1 -ARM_CLIENT_ID ${{ secrets.ARM_CLIENT_ID }} -ARM_CLIENT_SECRET ${{ secrets.ARM_CLIENT_SECRET }} -ARM_SUBSCRIPTION_ID ${{ secrets.ARM_SUBSCRIPTION_ID }} -ARM_TENANT_ID ${{ secrets.ARM_TENANT_ID }} -LabName SpDscDevInfraCIWin2019
   test-win2019core-clean:
     runs-on: ubuntu-20.04
     container: mcr.microsoft.com/azure-powershell:8.2.0-alpine-3.14
@@ -208,7 +208,7 @@ jobs:
       shell: pwsh
       run: |
         Install-Module -Name Az -RequiredVersion 8.2.0 -Force -AllowClobber;
-        ./src/remove.ps1 -ARM_CLIENT_ID ${{ secrets.ARM_CLIENT_ID }} -ARM_CLIENT_SECRET ${{ secrets.ARM_CLIENT_SECRET }} -ARM_SUBSCRIPTION_ID ${{ secrets.ARM_SUBSCRIPTION_ID }} -ARM_TENANT_ID ${{ secrets.ARM_TENANT_ID }} -LabName SpDscDevInfraCIWin2019Core
+        ./src/clear.ps1 -ARM_CLIENT_ID ${{ secrets.ARM_CLIENT_ID }} -ARM_CLIENT_SECRET ${{ secrets.ARM_CLIENT_SECRET }} -ARM_SUBSCRIPTION_ID ${{ secrets.ARM_SUBSCRIPTION_ID }} -ARM_TENANT_ID ${{ secrets.ARM_TENANT_ID }} -LabName SpDscDevInfraCIWin2019Core
   test-win2022-clean:
     runs-on: ubuntu-20.04
     container: mcr.microsoft.com/azure-powershell:8.2.0-alpine-3.14
@@ -259,7 +259,7 @@ jobs:
       shell: pwsh
       run: |
         Install-Module -Name Az -RequiredVersion 8.2.0 -Force -AllowClobber;
-        ./src/remove.ps1 -ARM_CLIENT_ID ${{ secrets.ARM_CLIENT_ID }} -ARM_CLIENT_SECRET ${{ secrets.ARM_CLIENT_SECRET }} -ARM_SUBSCRIPTION_ID ${{ secrets.ARM_SUBSCRIPTION_ID }} -ARM_TENANT_ID ${{ secrets.ARM_TENANT_ID }} -LabName SpDscDevInfraCIWin2022
+        ./src/clear.ps1 -ARM_CLIENT_ID ${{ secrets.ARM_CLIENT_ID }} -ARM_CLIENT_SECRET ${{ secrets.ARM_CLIENT_SECRET }} -ARM_SUBSCRIPTION_ID ${{ secrets.ARM_SUBSCRIPTION_ID }} -ARM_TENANT_ID ${{ secrets.ARM_TENANT_ID }} -LabName SpDscDevInfraCIWin2022
   test-win2022core-clean:
     runs-on: ubuntu-20.04
     container: mcr.microsoft.com/azure-powershell:8.2.0-alpine-3.14
