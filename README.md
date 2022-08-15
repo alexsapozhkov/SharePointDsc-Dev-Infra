@@ -79,6 +79,17 @@ https://github.com/AutomatedLab/AutomatedLab/blob/develop/LabXml/Machines/Operat
   - Windows Server 2022 Datacenter
   - Windows Server 2022 Datacenter (Desktop Experience)
 
+## Clear the Azure Resource Group
+
+```powershell
+./src/clear.ps1 `
+    -ARM_CLIENT_ID $env:ARM_CLIENT_ID `
+    -ARM_CLIENT_SECRET $env:ARM_CLIENT_SECRET `
+    -ARM_SUBSCRIPTION_ID $env:ARM_SUBSCRIPTION_ID `
+    -ARM_TENANT_ID $env:ARM_TENANT_ID `
+    -LabName SharePointDscDev39
+```
+
 ## Remove the Azure Resource Group
 
 In dev Container:
