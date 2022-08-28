@@ -6,7 +6,7 @@ This code is for preparing infrastructure for you, when you contribute to https:
 
 When you want to debug/test only SPInstallPrereqs, SPInstall, SPInstallLanguagePack, SPProductUpdate and SPDocIcon resources, you only need VMs without AD domain. For preparing them, you need to run with parameters `./src/soe/new.ps1`:
 
-In Windows 10:
+In Windows:
 
 ```powershell
 Install-Module -Name Az -RequiredVersion 8.2.0 -Force;
@@ -118,7 +118,7 @@ docker run --rm -it -v $(pwd):/workspaces/SharePointDsc-Dev-Infra -w /workspaces
     -LabName SharePointDscDev39
 ```
 
-In Windows 10:
+In Windows:
 
 ```powershell
 Install-Module -Name Az -RequiredVersion 8.2.0 -Force;
