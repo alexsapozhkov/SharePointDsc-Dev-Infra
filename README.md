@@ -16,11 +16,11 @@ Install-Module -Name AutomatedLabNotifications -RequiredVersion 5.43.0 -Force;
 Install-Module -Name AutomatedLabTest -RequiredVersion 5.43.0 -Force;
 Install-Module -Name AutomatedLabWorker -RequiredVersion 5.43.0 -Force;
 Install-Module -Name AutomatedLab -RequiredVersion 5.43.0 -Force -SkipPublisherCheck -AllowClobber;
-Uninstall-Module -Name AutomatedLabUnattended -RequiredVersion 5.44.0 -Force;
-Uninstall-Module -Name AutomatedLabDefinition -RequiredVersion 5.44.0 -Force;
-Uninstall-Module -Name AutomatedLabNotifications -RequiredVersion 5.44.0 -Force;
-Uninstall-Module -Name AutomatedLabTest -RequiredVersion 5.44.0 -Force;
-Uninstall-Module -Name AutomatedLabWorker -RequiredVersion 5.44.0 -Force;
+Uninstall-Module -Name AutomatedLabUnattended -RequiredVersion 5.45.0 -Force;
+Uninstall-Module -Name AutomatedLabDefinition -RequiredVersion 5.45.0 -Force;
+Uninstall-Module -Name AutomatedLabNotifications -RequiredVersion 5.45.0 -Force;
+Uninstall-Module -Name AutomatedLabTest -RequiredVersion 5.45.0 -Force;
+Uninstall-Module -Name AutomatedLabWorker -RequiredVersion 5.45.0 -Force;
 $env:AUTOMATEDLAB_TELEMETRY_OPTIN = 'true';
 Enable-LabHostRemoting -Force;
 ```
