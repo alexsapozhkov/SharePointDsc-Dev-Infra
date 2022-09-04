@@ -1,11 +1,10 @@
 Install-Module -Name Az -RequiredVersion 8.2.0 -Force;
-$latestAutomatedLabVersion = ( Find-Module AutomatedLab ).Version;
 $requiredAutomatedLabVersion = "5.45.0";
 Install-Module -Name AutomatedLab -RequiredVersion $requiredAutomatedLabVersion -Force -SkipPublisherCheck -AllowClobber;
-if ( $requiredAutomatedLabVersion -ne $latestAutomatedLabVersion ) {
-    "AutomatedLabDefinition", "AutomatedLabNotifications", "AutomatedLabTest", "AutomatedLabWorker", "AutomatedLabUnattended" | % {
-        Install-Module -Name $_ -RequiredVersion $requiredAutomatedLabVersion -Force;
-        Uninstall-Module -Name $_ -RequiredVersion $latestAutomatedLabVersion -Force;
+"AutomatedLab", "AutomatedLabDefinition", "AutomatedLabNotifications", "AutomatedLabTest", "AutomatedLabWorker", "AutomatedLabUnattended" | % {
+    Install-Module -Name $_ -RequiredVersion $requiredAutomatedLabVersion -Force;
+    Get-Module $_ -ListAvailable | ? { $_.Version -ne $requiredAutomatedLabVersion } | % {
+        Uninstall-Module -Name $_.Name -RequiredVersion $_.Version -Force;
     }
 }
 Get-Module AutomatedLab* -ListAvailable;
