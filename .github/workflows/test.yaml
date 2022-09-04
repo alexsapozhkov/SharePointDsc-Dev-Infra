@@ -22,7 +22,9 @@ jobs:
     - uses: actions/checkout@v2
     - name: Installing Prerequisites
       shell: pwsh
-      run: .\src\prereqs.ps1
+      run: |
+        Install-Module -Name Az -RequiredVersion 8.2.0 -Force -AllowClobber;
+        .\src\prereqs.ps1
     - name: Provisioning Lab
       shell: pwsh
       run: ./src/soe/new.ps1 -ARM_CLIENT_ID ${{ secrets.ARM_CLIENT_ID }} -ARM_CLIENT_SECRET ${{ secrets.ARM_CLIENT_SECRET }} -ARM_SUBSCRIPTION_ID ${{ secrets.ARM_SUBSCRIPTION_ID }} -ARM_TENANT_ID ${{ secrets.ARM_TENANT_ID }} -LabName SpDscDevInfraCIWin2012R2 -AdminPassword Somepass1 -SPFE1Name swazspfe00 -SPFE1Size Standard_D2s_v3 -SPFE1Os "Windows Server 2012 R2 Datacenter (Server with a GUI)" -SPFE1StorageSku Standard_LRS -GITHUB_RUNNER_URL https://github.com/alexsapozhkov/SharePointDsc-Dev-Infra -GITHUB_RUNNER_TOKEN ${{ secrets._GITHUB_RUNNER_TOKEN }} -GITHUB_RUNNER_LABELS SOE-DEV-2012R2
@@ -60,7 +62,9 @@ jobs:
     - uses: actions/checkout@v2
     - name: Installing Prerequisites
       shell: pwsh
-      run: .\src\prereqs.ps1
+      run: |
+        Install-Module -Name Az -RequiredVersion 8.2.0 -Force -AllowClobber;
+        .\src\prereqs.ps1
     - name: Provisioning Lab
       shell: pwsh
       run: ./src/soe/new.ps1 -ARM_CLIENT_ID ${{ secrets.ARM_CLIENT_ID }} -ARM_CLIENT_SECRET ${{ secrets.ARM_CLIENT_SECRET }} -ARM_SUBSCRIPTION_ID ${{ secrets.ARM_SUBSCRIPTION_ID }} -ARM_TENANT_ID ${{ secrets.ARM_TENANT_ID }} -LabName SpDscDevInfraCIWin2016 -AdminPassword Somepass1 -SPFE1Name swazspfe00 -SPFE1Size Standard_D2s_v3 -SPFE1Os "Windows Server 2016 Datacenter (Desktop Experience)" -SPFE1StorageSku Standard_LRS -GITHUB_RUNNER_URL https://github.com/alexsapozhkov/SharePointDsc-Dev-Infra -GITHUB_RUNNER_TOKEN ${{ secrets._GITHUB_RUNNER_TOKEN }} -GITHUB_RUNNER_LABELS SOE-DEV-2016
@@ -98,7 +102,9 @@ jobs:
     - uses: actions/checkout@v2
     - name: Installing Prerequisites
       shell: pwsh
-      run: .\src\prereqs.ps1
+      run: |
+        Install-Module -Name Az -RequiredVersion 8.2.0 -Force -AllowClobber;
+        .\src\prereqs.ps1
     - name: Provisioning Lab
       shell: pwsh
       run: ./src/soe/new.ps1 -ARM_CLIENT_ID ${{ secrets.ARM_CLIENT_ID }} -ARM_CLIENT_SECRET ${{ secrets.ARM_CLIENT_SECRET }} -ARM_SUBSCRIPTION_ID ${{ secrets.ARM_SUBSCRIPTION_ID }} -ARM_TENANT_ID ${{ secrets.ARM_TENANT_ID }} -LabName SpDscDevInfraCIWin2019 -AdminPassword Somepass1 -SPFE1Name swazspfe00 -SPFE1Size Standard_D2s_v3 -SPFE1Os "Windows Server 2019 Datacenter (Desktop Experience)" -SPFE1StorageSku Standard_LRS -GITHUB_RUNNER_URL https://github.com/alexsapozhkov/SharePointDsc-Dev-Infra -GITHUB_RUNNER_TOKEN ${{ secrets._GITHUB_RUNNER_TOKEN }} -GITHUB_RUNNER_LABELS SOE-DEV-2019
@@ -136,7 +142,9 @@ jobs:
     - uses: actions/checkout@v2
     - name: Installing Prerequisites
       shell: pwsh
-      run: .\src\prereqs.ps1
+      run: |
+        Install-Module -Name Az -RequiredVersion 8.2.0 -Force -AllowClobber;
+        .\src\prereqs.ps1
     - name: Provisioning Lab
       shell: pwsh
       run: ./src/soe/new.ps1 -ARM_CLIENT_ID ${{ secrets.ARM_CLIENT_ID }} -ARM_CLIENT_SECRET ${{ secrets.ARM_CLIENT_SECRET }} -ARM_SUBSCRIPTION_ID ${{ secrets.ARM_SUBSCRIPTION_ID }} -ARM_TENANT_ID ${{ secrets.ARM_TENANT_ID }} -LabName SpDscDevInfraCIWin2019Core -AdminPassword Somepass1 -SPFE1Name swazspfe00 -SPFE1Size Standard_D2s_v3 -SPFE1Os "Windows Server 2019 Datacenter" -SPFE1StorageSku Standard_LRS -GITHUB_RUNNER_URL https://github.com/alexsapozhkov/SharePointDsc-Dev-Infra -GITHUB_RUNNER_TOKEN ${{ secrets._GITHUB_RUNNER_TOKEN }} -GITHUB_RUNNER_LABELS SOE-DEV-2019Core
@@ -174,7 +182,9 @@ jobs:
     - uses: actions/checkout@v2
     - name: Installing Prerequisites
       shell: pwsh
-      run: .\src\prereqs.ps1
+      run: |
+        Install-Module -Name Az -RequiredVersion 8.2.0 -Force -AllowClobber;
+        .\src\prereqs.ps1
     - name: Provisioning Lab
       shell: pwsh
       run: ./src/soe/new.ps1 -ARM_CLIENT_ID ${{ secrets.ARM_CLIENT_ID }} -ARM_CLIENT_SECRET ${{ secrets.ARM_CLIENT_SECRET }} -ARM_SUBSCRIPTION_ID ${{ secrets.ARM_SUBSCRIPTION_ID }} -ARM_TENANT_ID ${{ secrets.ARM_TENANT_ID }} -LabName SpDscDevInfraCIWin2022 -AdminPassword Somepass1 -SPFE1Name swazspfe00 -SPFE1Size Standard_D2s_v3 -SPFE1Os "Windows Server 2022 Datacenter (Desktop Experience)" -SPFE1StorageSku Standard_LRS -GITHUB_RUNNER_URL https://github.com/alexsapozhkov/SharePointDsc-Dev-Infra -GITHUB_RUNNER_TOKEN ${{ secrets._GITHUB_RUNNER_TOKEN }} -GITHUB_RUNNER_LABELS SOE-DEV-2022
@@ -212,7 +222,9 @@ jobs:
     - uses: actions/checkout@v2
     - name: Installing Prerequisites
       shell: pwsh
-      run: .\src\prereqs.ps1
+      run: |
+        Install-Module -Name Az -RequiredVersion 8.2.0 -Force -AllowClobber;
+        .\src\prereqs.ps1
     - name: Provisioning Lab
       shell: pwsh
       run: ./src/soe/new.ps1 -ARM_CLIENT_ID ${{ secrets.ARM_CLIENT_ID }} -ARM_CLIENT_SECRET ${{ secrets.ARM_CLIENT_SECRET }} -ARM_SUBSCRIPTION_ID ${{ secrets.ARM_SUBSCRIPTION_ID }} -ARM_TENANT_ID ${{ secrets.ARM_TENANT_ID }} -LabName SpDscDevInfraCIWin2022Core -AdminPassword Somepass1 -SPFE1Name swazspfe00 -SPFE1Size Standard_D2s_v3 -SPFE1Os "Windows Server 2022 Datacenter" -SPFE1StorageSku Standard_LRS -GITHUB_RUNNER_URL https://github.com/alexsapozhkov/SharePointDsc-Dev-Infra -GITHUB_RUNNER_TOKEN ${{ secrets._GITHUB_RUNNER_TOKEN }} -GITHUB_RUNNER_LABELS SOE-DEV-2022Core
