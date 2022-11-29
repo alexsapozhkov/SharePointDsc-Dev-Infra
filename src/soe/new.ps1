@@ -32,20 +32,6 @@ param
 )
 
 try {
-    $securedPassword = ConvertTo-SecureString $ARM_CLIENT_SECRET -AsPlainText -Force;
-    $azureCredential = New-Object System.Management.Automation.PSCredential( $ARM_CLIENT_ID, $securedPassword );
-    Connect-AzAccount -Credential $azureCredential -ServicePrincipal -TenantId $ARM_TENANT_ID | Out-Null;
-    Select-AzSubscription -SubscriptionId $ARM_SUBSCRIPTION_ID;
-    
-    $env:AUTOMATEDLAB_TELEMETRY_OPTIN = 'true';
-    Set-PSFConfig -Module AutomatedLab -Name DoNotPrompt -Value $true;
-    
-    New-LabDefinition -Name $LabName -DefaultVirtualizationEngine Azure
-    Add-LabAzureSubscription -DefaultLocationName $AzureDefaultLocation;
-    
-    Set-LabInstallationCredential -Username Install -Password $AdminPassword
-    
-    # SharePoint Machine
     $azureProperties = $null;
     if ($SPFE1Size) {
         if ( $azureProperties -eq $null ) { $azureProperties = @{} }
@@ -64,12 +50,27 @@ try {
     Write-Host $a;
     Write-Host $a.GetType();
     Write-Host "a.StorageSku:";
-    Write-Host $a.StorageSku;    #$fePostInstallActivity = @()
+    Write-Host $a.StorageSku;
+    $securedPassword = ConvertTo-SecureString $ARM_CLIENT_SECRET -AsPlainText -Force;
+    $azureCredential = New-Object System.Management.Automation.PSCredential( $ARM_CLIENT_ID, $securedPassword );
+    Connect-AzAccount -Credential $azureCredential -ServicePrincipal -TenantId $ARM_TENANT_ID | Out-Null;
+    Select-AzSubscription -SubscriptionId $ARM_SUBSCRIPTION_ID;
+    
+    $env:AUTOMATEDLAB_TELEMETRY_OPTIN = 'true';
+    Set-PSFConfig -Module AutomatedLab -Name DoNotPrompt -Value $true;
+    
+    New-LabDefinition -Name $LabName -DefaultVirtualizationEngine Azure
+    Add-LabAzureSubscription -DefaultLocationName $AzureDefaultLocation;
+    
+    Set-LabInstallationCredential -Username Install -Password $AdminPassword
+    
+    # SharePoint Machine
+    #$fePostInstallActivity = @()
     #if ( $SPFE1Os -eq "Windows Server 2012 R2 Datacenter (Server with a GUI)" ) {
     #    $fePostInstallActivity += Get-LabPostInstallationActivity -ScriptFilePath .\src\remote\Set-SchUseStrongCrypto.ps1 -DependencyFolder .\src\remote;
     #}
     
-    Add-LabMachineDefinition -Name $SPFE1Name -AzureProperties $azureProperties -OperatingSystem $SPFE1Os -PostInstallationActivity $fePostInstallActivity;
+    Add-LabMachineDefinition -Name $SPFE1Name -AzureProperties @{ StorageSku = 'Standard_LRS' } -OperatingSystem $SPFE1Os -PostInstallationActivity $fePostInstallActivity;
     
     Install-Lab;
     
