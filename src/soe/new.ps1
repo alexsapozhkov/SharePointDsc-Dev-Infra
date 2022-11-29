@@ -54,9 +54,17 @@ try {
         if ( $azureProperties -eq $null ) { $azureProperties = @{} }
         $azureProperties.StorageSku = $SPFE1StorageSku
     }
-    Write-Host "azureProperties.StorageSku";
+    Write-Host "azureProperties:";
+    Write-Host $azureProperties;
+    Write-Host $azureProperties.GetType();
+    Write-Host "azureProperties.StorageSku:";
     Write-Host $azureProperties.StorageSku;
-    #$fePostInstallActivity = @()
+    $a = @{RoleSize = 'Standard_D4s_v3'; StorageSku = 'Standard_LRS' }
+    Write-Host "a:";
+    Write-Host $a;
+    Write-Host $a.GetType();
+    Write-Host "a.StorageSku:";
+    Write-Host $a.StorageSku;    #$fePostInstallActivity = @()
     #if ( $SPFE1Os -eq "Windows Server 2012 R2 Datacenter (Server with a GUI)" ) {
     #    $fePostInstallActivity += Get-LabPostInstallationActivity -ScriptFilePath .\src\remote\Set-SchUseStrongCrypto.ps1 -DependencyFolder .\src\remote;
     #}
